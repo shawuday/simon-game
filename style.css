@@ -1,0 +1,43 @@
+body{
+    text-align: center;
+    background-color: aqua;
+}
+.btn{
+    height: 200px;
+    width: 200px;
+    border-radius: 15%;
+    border: 10px solid black;
+    margin: 20px;
+    
+}
+.yes{
+    display: flex;
+    justify-content: center;
+    /* border-radius: 10%; */
+    
+}
+.red{
+    background-color: rgb(98, 14, 14);
+    /* border-radius: 20%; */
+}
+.green{
+    background-color: green ;
+    /* border-radius: 15%; */
+}
+.yellow{
+    background-color: rgb(232, 232, 14);
+    /* border-radius: 15%; */
+}
+.blue{
+    background-color: rgb(15, 15, 227);
+    /* border-radius: 15%; */
+}
+.flash{
+    background-color: black;
+}
+.playFlash{
+    background-color: green;
+}
+.alert{
+    background-color: red;
+}
