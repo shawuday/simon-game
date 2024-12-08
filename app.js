@@ -6,7 +6,7 @@ let h2 = document.querySelector("h2");
 let started = false;
 let level = 0;
 // const buttom=document.querySelector(".btn");
-const audio = new Audio('http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav');
+const audio = new Audio('button-sound.mp3');
 const wrong = new Audio('wrong-sound.mp3');
 
 
