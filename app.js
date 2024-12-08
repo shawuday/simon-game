@@ -5,13 +5,19 @@ let btns = ["yellow", "red", "blue", "green"];
 let h2 = document.querySelector("h2");
 let started = false;
 let level = 0;
+// const buttom=document.querySelector(".btn");
+const audio = new Audio('http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav');
+const wrong = new Audio('wrong-sound.mp3');
+
+
 document.addEventListener("keypress", init);
 document.addEventListener("click", init);
-   
+
 function init() {
    if (started == false) {
       console.log("game started");
       started = true;
+      // audio.play();
       levelup();
    }
 };
@@ -23,13 +29,14 @@ function btnFlash(btn) {
    }, 300);
 }
 function clickFlash(btn) {
+   audio.play();
    btn.classList.add("playFlash");
    setTimeout(function () {
       btn.classList.remove("playFlash");
    }, 300);
 }
 function levelup() {
-   userseq=[];
+   userseq = [];
    level++;
    h2.innerText = `Level ${level}`;
    let ranIdx = Math.floor(Math.random() * 3);
@@ -51,13 +58,13 @@ function checkAns(idx) {
 
    if (userseq[idx] === gameseq[idx]) {
       // console.log("same value"); 
-      if(userseq.length==gameseq.length){
-      setTimeout(levelup,1000);
+      if (userseq.length == gameseq.length) {
+         setTimeout(levelup, 1000);
       }
    } else {
-      console.log("yye waaala runnn hoo rha hhhh");
+        wrong.play();
       h2.innerHTML = `Game Over!  your score =${level} <br> Press any key to start again`;
-      let body=document.querySelector("body");
+      let body = document.querySelector("body");
       body.classList.add("alert");
       setTimeout(function () {
          body.classList.remove("alert");
@@ -73,16 +80,17 @@ function btnPress() {
    userColor = btn.getAttribute("id");
    userseq.push(userColor);
    // console.log(userseq);
-   checkAns(userseq.length-1);
+   checkAns(userseq.length - 1);
 }
 let allBtns = document.querySelectorAll(".btn");
 for (btn of allBtns) {
    btn.addEventListener("click", btnPress);
+   
 }
-function reset(){
+function reset() {
    // started=false;
-   setTimeout(()=>started=false);
-   gameseq=[];
-   userseq=[];
-   level=0;
+   setTimeout(() => started = false);
+   gameseq = [];
+   userseq = [];
+   level = 0;
 }
