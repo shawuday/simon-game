@@ -5,13 +5,17 @@ let btns = ["yellow", "red", "blue", "green"];
 let h2 = document.querySelector("h2");
 let started = false;
 let level = 0;
-document.addEventListener("click", function () {
+document.addEventListener("keypress", init);
+document.addEventListener("click", init);
+   
+function init() {
    if (started == false) {
       console.log("game started");
       started = true;
       levelup();
    }
-});
+};
+
 function btnFlash(btn) {
    btn.classList.add("flash");
    setTimeout(function () {
@@ -51,6 +55,7 @@ function checkAns(idx) {
       setTimeout(levelup,1000);
       }
    } else {
+      console.log("yye waaala runnn hoo rha hhhh");
       h2.innerHTML = `Game Over!  your score =${level} <br> Press any key to start again`;
       let body=document.querySelector("body");
       body.classList.add("alert");
@@ -75,7 +80,8 @@ for (btn of allBtns) {
    btn.addEventListener("click", btnPress);
 }
 function reset(){
-   started=false;
+   // started=false;
+   setTimeout(()=>started=false);
    gameseq=[];
    userseq=[];
    level=0;
